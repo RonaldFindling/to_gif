@@ -92,6 +92,13 @@ then
 fi
 
 ####################
+# change OS language to english 
+# (needed for exiv2 metadate grepping)
+####################
+old_lang=$LANGUAGE
+LANGUAGE="en_US:en"
+
+####################
 # create gif
 ####################
 convert ${@} ${size} +repage ${data_dir}resized_%02d.jpg #+repage
@@ -149,6 +156,11 @@ if [[ "${verbose}" == true ]]; then echo "rotation_param=${rotation_param}"; fi
 #rotate the final gif
 if [[ "${verbose}" == true ]]; then echo "gifsicle ${rotation_param} ${colourspace} ${data_dir}final.gif > ${data_dir}${final_file}"; fi
 gifsicle ${rotation_param} ${colourspace} ${data_dir}final.gif > ${data_dir}${final_file}
+
+####################
+# restore old OS language 
+####################
+LANGUAGE=$old_lang
 
 ####################
 # cleanup
