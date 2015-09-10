@@ -148,6 +148,10 @@ case "${rotation_state}" in
 "left,	bottom") #8
 	rotation_param="--rotate-90 --flip-horizontal --flip-vertical"
 	;;
+"*")
+	echo "Ivalid rotation-state! rotation_state=${rotation_state} Terminating execution now." >&2
+	exit 1
+	;;
 esac
 
 
