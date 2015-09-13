@@ -15,7 +15,37 @@ shopt -s nullglob
 ####################
 # exiv2 gifsicle hugin imagemagick
 # redirect std::out and std::err using "> '/dev/null' 2>&1 '/dev/null'" (shortform not supported everywhere is '&>')
-dpkg -s exiv2 gifsicle hugin imagemagick > "/dev/null" 2>&1 && echo "All dependencies found." || echo -e "Not all dependencies found, check if the following packages are installed:\nexiv2, gifsicle, hugin, imagemagick" >&2
+
+# dpkg -s exiv2 gifsicle hugin imagemagick > "/dev/null" 2>&1 && echo "All dependencies found." || echo -e "Not all dependencies found, check if the following packages are installed:\nexiv2, gifsicle, hugin, imagemagick" >&2
+
+dependencies_ok=true
+dpkg -s exiv2 > '/dev/null' 2>&1
+if [ $? != 0 ]; then
+	echo "Dependency exiv2 is missing." >&2
+	dependencies_ok=false
+fi
+
+dpkg -s gifsicle > '/dev/null' 2>&1
+if [ $? != 0 ]; then
+	echo "Dependency gifsicle is missing." >&2
+	dependencies_ok=false
+fi
+
+dpkg -s hugin > '/dev/null' 2>&1
+if [ $? != 0 ]; then
+	echo "Dependency hugin is missing." >&2
+	dependencies_ok=false
+fi
+
+dpkg -s imagemagick > '/dev/null' 2>&1
+if [ $? != 0 ]; then
+	echo "Dependency imagemagick is missing." >&2
+	dependencies_ok=false
+fi
+
+if [ dependencies_ok ]; then
+	echo "All dependencies found."
+fi
 
 ####################
 # param parsing
@@ -95,6 +125,8 @@ fi
 # change OS language to english 
 # (needed for exiv2 metadate grepping)
 ####################
+# source: http://www.shellhacks.com/en/HowTo-Change-Locale-Language-and-Character-Set-in-Linux
+# to get all locales use: locale (clear), locale -a (all)
 old_lang=$LANGUAGE
 LANGUAGE="en_US:en"
 
