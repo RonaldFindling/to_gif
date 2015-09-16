@@ -4,8 +4,8 @@
 # activate security
 ####################
 OPTIND=1 
-#set -o nounset #only set when programming (in release manual check if variables are set is neeed)
-set -o errexit
+#set -o nounset	#only set when programming (in release manual check if variables are set is neeed)
+#set -o errexit	#use only for programming (error-state of function must be checkable in release)
 set -o pipefail
 shopt -s nullglob
 #set -v #verbose
@@ -21,25 +21,25 @@ shopt -s nullglob
 dependencies_ok=true
 dpkg -s exiv2 > '/dev/null' 2>&1
 if [ $? != 0 ]; then
-	echo "Dependency exiv2 is missing." >&2
+	echo "Dependency exiv2 is missing. To install missing dependencies use: 'sudo apt-get install packagename'" >&2
 	dependencies_ok=false
 fi
 
 dpkg -s gifsicle > '/dev/null' 2>&1
 if [ $? != 0 ]; then
-	echo "Dependency gifsicle is missing." >&2
+	echo "Dependency gifsicle is missing. To install missing dependencies use: 'sudo apt-get install packagename'" >&2
 	dependencies_ok=false
 fi
 
 dpkg -s hugin > '/dev/null' 2>&1
 if [ $? != 0 ]; then
-	echo "Dependency hugin is missing." >&2
+	echo "Dependency hugin is missing. To install missing dependencies use: 'sudo apt-get install packagename'" >&2
 	dependencies_ok=false
 fi
 
 dpkg -s imagemagick > '/dev/null' 2>&1
 if [ $? != 0 ]; then
-	echo "Dependency imagemagick is missing." >&2
+	echo "Dependency imagemagick is missing. To install missing dependencies use: 'sudo apt-get install packagename'" >&2
 	dependencies_ok=false
 fi
 
