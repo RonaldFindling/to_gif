@@ -43,7 +43,8 @@ if [ $? != 0 ]; then
 	dependencies_ok=false
 fi
 
-if [ dependencies_ok ]; then
+# echo $dependencies_ok
+if [ $dependencies_ok == true ]; then
 	echo "All dependencies found."
 fi
 
