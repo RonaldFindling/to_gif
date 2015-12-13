@@ -1,0 +1,77 @@
+./ Howto write Manpages http://www.schweikhardt.net/man_page_howto.html
+
+./Section The human readable name
+./   1    User commands that may be started by everyone.
+./   2    System calls, that is, functions provided by the kernel.
+./   3    Subroutines, that is, library functions.
+./   4    Devices, that is, special files in the /dev directory.
+./   5    File format descriptions, e.g. /etc/passwd.
+./   6    Games, self-explanatory.
+./   7    Miscellaneous, e.g. macro packages, conventions.
+./   8    System administration tools that only root can execute.
+./   9    Another (Linux specific) place for kernel routine documentation.
+./   n    (Deprecated) New documentation, that may be moved to a more appropriate section.
+./   o    (Deprecated) Old documentation, that may be kept for a grace period.
+./   l    (Deprecated) Local documentation referring to this particular system.
+
+./# get paths for man by command manpath (only absolute paths without whitespaces)
+./ used path is /usr/local/man/man1
+./ all paths are:
+./# /usr/local/man:/usr/local/share/man:/usr/share/man:/usr/lib/jvm/java-8-oracle/man
+
+.TH to_gif.sh 1 "December 2015" Linux "User Commands"
+.SH NAME
+to_gif.sh \- Align images and convert them into an annotated gif
+.SH SYNOPSIS
+.B to_gif.sh [-c
+.I colourSpaceSize
+.B ] [-h] [-v] [-r] [-s
+.I relativeSize
+.B ] [-d
+.I delayInHundredthSeconds
+.B ]
+.I picturesAsWildcardOrList
+
+.SH DESCRIPTION
+.B to_gif.sh
+is a simple command line tool to create animated gifs. It uses the provided images, aligns and projects them and converts the result into an animated gif using 
+.BR hugin (1)
+, 
+.BR imagemagick (2)
+, 
+.BR exiv2 (3) 
+and 
+.BR gifsicle (4).
+
+.SH OPTIONS
+.IP "-c colourSpaceSize"
+Determines the size of the colour space which can at max be 256 for gif. Avoiding this option seems to get better results most of the time.
+.IP -h 
+Prints a summary of the command line usage of 
+.B to_gif.sh
+and exits.
+.IP -v
+Verbose, prints additional notifications of currently applied steps in the tool-chain.
+.IP -r
+Don't remove intermediate files (images, logs).
+.IP "-s relative Size"
+The size of the new image as relative size of the old image given in percentage.
+.IP "-d delayInHundredthSeconds"
+The time delay between the images of the gif in hundredts of a second.
+
+.SH ENVIRONMENT
+No environment variables are used.
+
+.SH DIAGNOSTICS
+The following diagnostics may be issued on stderr:
+
+Dependency <dependency> is missing.
+.RS
+One of the necessary dependencies of the script is not met. Most likely it's one of the listed cases:
+.br
+Dependency is not installed.
+.br
+Dependency is installed with another name than assumed in this script (ubuntu-14-04-package-names).
+.br
+Dependency is not available on $PATH.
+.RE
