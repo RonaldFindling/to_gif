@@ -1,4 +1,5 @@
-./ Howto write Manpages http://www.schweikhardt.net/man_page_howto.html
+./ Howto write Manpages  http://www.schweikhardt.net/man_page_howto.html
+./ Howto write Manpages2 http://technicalprose.blogspot.co.at/2011/06/how-to-write-unix-man-page.html
 
 ./Section The human readable name
 ./   1    User commands that may be started by everyone.
@@ -14,11 +15,12 @@
 ./   o    (Deprecated) Old documentation, that may be kept for a grace period.
 ./   l    (Deprecated) Local documentation referring to this particular system.
 
-./# get paths for man by command manpath (only absolute paths without whitespaces)
+./ get paths for man by command manpath (only absolute paths without whitespaces)
 ./ used path is /usr/local/man/man1
 ./ all paths are:
-./# /usr/local/man:/usr/local/share/man:/usr/share/man:/usr/lib/jvm/java-8-oracle/man
+./ /usr/local/man:/usr/local/share/man:/usr/share/man:/usr/lib/jvm/java-8-oracle/man
 
+./ Beginning of the manpage:
 .TH to_gif.sh 1 "December 2015" Linux "User Commands"
 .SH NAME
 to_gif.sh \- Align images and convert them into an annotated gif
@@ -54,7 +56,7 @@ and exits.
 Verbose, prints additional notifications of currently applied steps in the tool-chain.
 .IP -r
 Don't remove intermediate files (images, logs).
-.IP "-s relative Size"
+.IP "-s relativeSize"
 The size of the new image as relative size of the old image given in percentage.
 .IP "-d delayInHundredthSeconds"
 The time delay between the images of the gif in hundredts of a second.
