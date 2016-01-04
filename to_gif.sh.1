@@ -15,9 +15,10 @@
 ./   o    (Deprecated) Old documentation, that may be kept for a grace period.
 ./   l    (Deprecated) Local documentation referring to this particular system.
 
-./ get paths for man by command manpath (only absolute paths without whitespaces)
-./ used path is /usr/local/man/man1
-./ all paths are:
+./ if $MANPATH is not set the info from /etc/manpath.config is used
+./ to get paths for man by command use manpath or man -w (only absolute paths without whitespaces)
+./ we used /usr/local/man/man1 to locate the manpage
+./ all paths are: manpath
 ./ /usr/local/man:/usr/local/share/man:/usr/share/man:/usr/lib/jvm/java-8-oracle/man
 
 ./ Beginning of the manpage:

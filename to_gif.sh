@@ -58,7 +58,7 @@ remove_tmp_files=true
 verbose=false
 size=""
 delay="30"
-help_string="Usage: "`basename "$0"`" [-c colourSpaceSize] [-h] [-v] [-r] [-s relativeSize] [-d delayInhundredthSeconds] picturesAsWildcardOrList\n -c Determines the size of the colourspace, can be ommited in most cases. If needed try 256.\n -h Showing the helpstring, this is also done by default if you use the command without arguments.\n -v Make the command verbose.\n -r Don't remove temporary files, this will results in multiple intermediate files as well as the final gif.\n -s The wanted size of the new image, relative to the old size in percent.\n -d The time delay between the images in hundredths of a second." #\n The pictures used for gif creation, use wildcards to let the shell figure out how to represent them.
+help_string="Usage: "`basename "$0"`" [-c colourSpaceSize] [-h] [-v] [-r] [-s relativeSize] [-d delayInhundredthSeconds] picturesAsWildcardOrList\n -c Determines the size of the colourspace, can be ommited in most cases. If needed try 256.\n -h Showing the helpstring, this is also done by default if you use the command without arguments.\n -v Make the command verbose.\n -r Don't remove temporary files, this will result in multiple intermediate files as well as the final gif.\n -s The wanted size of the new image, relative to the old size in percent.\n -d The time delay between the images in hundredths of a second." #\n The pictures used for gif creation, use wildcards to let the shell figure out how to represent them.
 
 #checking for no options/paremter found
 if (($# == 0)); then
