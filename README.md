@@ -6,7 +6,7 @@ Linux shell script to align multiple *jpg* images and convert into an animated *
 
 <h4>Installation:</h4>
 If all dependencies are correctly installed and available on the `$PATH` copy **to_gif.sh** into your `$PATH` and make it executable.
-Then copy its manpage **to_gif.sh.1** into a directory of the `manpath`.
+Then copy its manpage **to_gif.sh.1** into a directory shown by `manpath`.
 
 <h4>Exemplary usage:</h4>
 ```bash
